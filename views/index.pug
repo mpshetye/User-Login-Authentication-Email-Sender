@@ -1,0 +1,69 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Account
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    .container-fluid
+      #box1.container.card(style='width:40rem; margin-top: 6rem; background-color:#ffffff66;')
+        .card-body
+          ul#myTab.nav.nav-tabs(role='tablist')
+            li.nav-item(role='presentation')
+              button#signUp-tab.nav-link.active(data-bs-toggle='tab' data-bs-target='#signUp' type='button' role='tab' aria-controls='signUp' aria-selected='true' style='color:rgb(156, 7, 7);') Sign Up
+            li.nav-item(role='presentation')
+              button#signIn-tab.nav-link(data-bs-toggle='tab' data-bs-target='#signIn' type='button' role='tab' aria-controls='signIn' aria-selected='false' style='color:rgb(156, 7, 7);') Sign In
+          #myTabContent.tab-content
+            #signUp.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='signUp-tab')
+              h3.text-center.my-4 Sign Up for Free
+              form.my-3.mx-5(action='/register' method='post' enctype='multipart/form-data')
+                .row.mb-3
+                  .col-sm-6
+                    input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)
+                  .col-sm-6
+                    input#lastName.form-control(type='text' name='lastName' placeholder='Last Name' required)
+                .row.mb-3
+                  .col-sm-12
+                    input#myEmail.form-control(type='email' name='email' placeholder='name@example.com' required)
+                .row.mb-3
+                  .col-sm-12
+                    input#myPhone.form-control(type='tel' name='phone' placeholder='Phone Number' required)
+                .row.mb-3
+                  .col-sm-6
+                    input#myUserName.form-control(type='text' name='userName' placeholder='User Name' required)
+                  .col-sm-6
+                    input#myAge.form-control(type='text' name='age' placeholder='Age' required)
+                .col.mb-3
+                  .form-check.form-check-inline
+                    input#inlineRadioMale.form-check-input(type='radio' name='gender' value='male' required)
+                    label.form-check-label(for='inlineRadioMale') Male
+                  .form-check.form-check-inline
+                    input#inlineRadioFemale.form-check-input(type='radio' name='gender' value='female' required)
+                    label.form-check-label(for='inlineRadioFemale') Female
+                  .form-check.form-check-inline
+                    input#inlineRadioOther.form-check-input(type='radio' name='gender' value='other' required)
+                    label.form-check-label(for='inlineRadioOther') Other
+                  .form-check.form-check-inline
+                    input#inlineRadioNone.form-check-input(type='radio' name='gender' value='unsaid' required)
+                    label.form-check-label(for='inlineRadioNone') Don't Wish To Say
+                .row.mb-3
+                  .col-sm-6
+                    input#password.form-control(type='text' name='password' placeholder='Password' required)
+                  .col-sm-6
+                    input#confirmPassword.form-control(type='text' name='confirmPassword' placeholder='Confirm Password' required)
+                .text-center
+                  button.btn.btn-primary(type='submit') Submit
+                  button.btn.btn-danger.mx-3(type='reset') Reset
+            #signIn.tab-pane.fade(role='tabpanel' aria-labelledby='signIn-tab')
+              h3.text-center.my-4 Welcome Back
+              form.my-3(action='/login' method='post' style='margin-left:10rem ; margin-right:10rem ;')
+                .mb-3
+                  input#logUser.form-control(type='text' aria-describedby='emailHelp' name='userName' placeholder='User Name')
+                .mb-3
+                  input#logPassword.form-control(type='password' name='password' placeholder='Password')
+                .text-center
+                  button.btn.btn-primary(type='submit') Sign In
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')

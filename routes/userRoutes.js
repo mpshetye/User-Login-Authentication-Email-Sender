@@ -10,6 +10,7 @@ router.post("/register", (req, res) => {
       .save()
       .then((data) => {
         res.send(data);
+        // res.redirect('/');
       })
       .catch((err) => {
         console.log(err);
@@ -19,5 +20,18 @@ router.post("/register", (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  try {
+    const password = req.body.password;
+    const userDetails = await User.findOne({ userName: req.body.userName });
+    if (userDetails.password == password) {
+      res.send("log in successful");
+    } else {
+      res.send("Invalid");
+    }
+  } catch (err) {
+    res.status(400).send("Invalid User");
+  }
+});
 
 module.exports = router;

@@ -19,7 +19,7 @@ html(lang='en')
           #myTabContent.tab-content
             #signUp.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='signUp-tab')
               h3.text-center.my-4 Sign Up for Free
-              form.my-3.mx-5(action='/register' method='post' enctype='multipart/form-data')
+              form.my-3.mx-5(action='/register' method='post')
                 .row.mb-3
                   .col-sm-6
                     input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)
@@ -51,9 +51,9 @@ html(lang='en')
                     label.form-check-label(for='inlineRadioNone') Don't Wish To Say
                 .row.mb-3
                   .col-sm-6
-                    input#password.form-control(type='text' name='password' placeholder='Password' required)
+                    input#password.form-control(type='password' name='password' placeholder='Password' required)
                   .col-sm-6
-                    input#confirmPassword.form-control(type='text' name='confirmPassword' placeholder='Confirm Password' required)
+                    input#confirmPassword.form-control(type='password' name='confirmPassword' placeholder='Confirm Password' required)
                 .text-center
                   button.btn.btn-primary(type='submit') Submit
                   button.btn.btn-danger.mx-3(type='reset') Reset

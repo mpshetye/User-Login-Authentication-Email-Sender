@@ -61,9 +61,9 @@ html(lang='en')
               h3.text-center.my-4 Welcome Back
               form.my-3(action='/login' method='post' style='margin-left:10rem ; margin-right:10rem ;')
                 .mb-3
-                  input#logUser.form-control(type='text' aria-describedby='emailHelp' name='userName' placeholder='User Name')
+                  input#logUser.form-control(type='text' name='userName' placeholder='User Name' required)
                 .mb-3
-                  input#logPassword.form-control(type='password' name='password' placeholder='Password')
+                  input#logPassword.form-control(type='password' name='password' placeholder='Password' required)
                 .text-center
                   button.btn.btn-primary(type='submit') Sign In
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4' crossorigin='anonymous')

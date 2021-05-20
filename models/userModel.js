@@ -36,9 +36,9 @@ const registerSchema = new Schema({
     password:{
         type:String
     },
-    confirmPassword:{
-        type: String
-    }
+    // confirmPassword:{
+    //     type: String
+    // }
 
 
 });

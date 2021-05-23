@@ -1,11 +1,13 @@
 const User = require("../models/userModel");
+const bcrypt = require('bcrypt');
 
 
-const register_user = (req, res) => {
+const register_user = async (req, res) => {
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   if (password === confirmPassword) {
     const registerUser = new User(req.body);
+    registerUser.password = await bcrypt.hash(registerUser.password, 10);
     registerUser
       .save()
       .then((data) => {
@@ -25,7 +27,8 @@ const login_user = async (req, res) => {
   try {
     const password = req.body.password;
     const userDetails = await User.findOne({ userName: req.body.userName });
-    if (userDetails.password == password) {
+    const userPassword = await bcrypt.compare(password, userDetails.password);
+    if (userPassword) {
       res.send("log in successful");
     } else {
       res.send("Invalid");

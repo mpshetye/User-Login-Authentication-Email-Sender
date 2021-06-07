@@ -1,0 +1,48 @@
+extends layout.pug
+
+block content
+  .jumbotron.mx-auto.my-5
+      .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
+        .card-body
+          h3.card-title.text-center Sign Up for Free
+          form.my-3.mx-5(action='/register' method='post')
+            .row.mb-3
+              .col-sm-6
+                input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)
+              .col-sm-6
+                input#lastName.form-control(type='text' name='lastName' placeholder='Last Name' required)
+            .row.mb-3
+              .col-sm-12
+                input#myEmail.form-control(type='email' name='email' placeholder='name@example.com' required)
+            .row.mb-3
+              .col-sm-12
+                input#myPhone.form-control(type='tel' name='phone' placeholder='Phone Number' required)
+            .row.mb-3
+              .col-sm-6
+                input#myUserName.form-control(type='text' name='userName' placeholder='User Name' required)
+              .col-sm-6
+                input#myAge.form-control(type='text' name='age' placeholder='Age' required)
+            .col.mb-3
+              .form-check.form-check-inline
+                input#inlineRadioMale.form-check-input(type='radio' name='gender' value='male' required)
+                label.form-check-label(for='inlineRadioMale') Male
+              .form-check.form-check-inline
+                input#inlineRadioFemale.form-check-input(type='radio' name='gender' value='female' required)
+                label.form-check-label(for='inlineRadioFemale') Female
+              .form-check.form-check-inline
+                input#inlineRadioOther.form-check-input(type='radio' name='gender' value='other' required)
+                label.form-check-label(for='inlineRadioOther') Other
+              .form-check.form-check-inline
+                input#inlineRadioNone.form-check-input(type='radio' name='gender' value='unsaid' required)
+                label.form-check-label(for='inlineRadioNone') Don't Wish To Say
+            .row.mb-3
+              .col-sm-6
+                input#password.form-control(type='text' name='password' placeholder='Password' required)
+              .col-sm-6
+                input#confirmPassword.form-control(type='text' name='confirmPassword' placeholder='Confirm Password' required)
+            .text-center
+              button.btn.btn-primary(type='submit') Submit
+              button.btn.btn-danger.mx-3(type='reset') Reset
+          .card-footer.text-center
+            | Already have an account?
+            a(href='/user/login') Login

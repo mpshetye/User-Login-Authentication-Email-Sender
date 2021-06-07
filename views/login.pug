@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  .jumbotron.mx-auto.my-5
+      .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
+        .card-body
+          h3.card-title.text-center Welcome Back
+          form.my-3(action='/login' method='post' style='margin-left:10rem ; margin-right:10rem ;')
+            .mb-3
+              input#logUser.form-control(type='text' aria-describedby='emailHelp' name='userName' placeholder='User Name')
+            .mb-3
+              input#logPassword.form-control(type='password' name='password' placeholder='Password')
+            .text-center
+              button.btn.btn-primary(type='submit') Login

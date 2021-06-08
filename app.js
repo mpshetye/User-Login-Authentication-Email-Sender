@@ -4,11 +4,13 @@ const path = require("path");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 // const User = require('./models/userModel'); dot is root directory... to move out from another directory to root use two dots and then slash.
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.use(express.static(path.join(__dirname, "static")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
@@ -34,4 +36,4 @@ app.get("/", (req, res) => {
   res.status(200).render("index");
 });
 
-app.use(userRoutes);
+app.use('/user', userRoutes);

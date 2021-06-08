@@ -1,5 +1,5 @@
 body{
-    background-image:url('/img/casey-horner-G2jAOMGGlPE-unsplash.jpg');
+    background-image:url('/img/joanna-kosinska-bF2vsubyHcQ-unsplash.jpg');
     height: 100%;
     width: 100%;
     background-position: center;
@@ -7,3 +7,16 @@ body{
     background-repeat: no-repeat;
     position: absolute;
 }
+
+.foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+ }
+
+ .foot a{
+    text-decoration: none;
+ }

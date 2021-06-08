@@ -1,0 +1,20 @@
+#icon {
+    display: flex;
+    height: 15%;
+    text-align: center;
+  }
+  
+  #icon .fa-paper-plane {
+      font-size: 4rem;
+      margin: 6% 45%;
+    animation: fas-anime 3s linear infinite alternate;
+  }
+  
+  @keyframes fas-anime {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }  

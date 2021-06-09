@@ -5,23 +5,29 @@ block content
       .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
         .card-body
           h3.card-title.text-center Sign Up for Free
-          form.my-3.mx-5(action='/register' method='post')
+          form.my-3.mx-5(action='/user/register' method='post')
             .row.mb-3
               .col-sm-6
                 input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)
+                #firstNameHelp.form-text
               .col-sm-6
                 input#lastName.form-control(type='text' name='lastName' placeholder='Last Name' required)
+                #lastNameHelp.form-text
             .row.mb-3
               .col-sm-12
                 input#myEmail.form-control(type='email' name='email' placeholder='name@example.com' required)
+                #emailHelp.form-text
             .row.mb-3
               .col-sm-12
                 input#myPhone.form-control(type='tel' name='phone' placeholder='Phone Number' required)
+                #phoneHelp.form-text
             .row.mb-3
               .col-sm-6
                 input#myUserName.form-control(type='text' name='userName' placeholder='User Name' required)
+                #userHelp.form-text
               .col-sm-6
                 input#myAge.form-control(type='text' name='age' placeholder='Age' required)
+                #ageHelp.form-text
             .col.mb-3
               .form-check.form-check-inline
                 input#inlineRadioMale.form-check-input(type='radio' name='gender' value='male' required)
@@ -35,14 +41,19 @@ block content
               .form-check.form-check-inline
                 input#inlineRadioNone.form-check-input(type='radio' name='gender' value='unsaid' required)
                 label.form-check-label(for='inlineRadioNone') Don't Wish To Say
+              #genderHelp.form-text
             .row.mb-3
               .col-sm-6
-                input#password.form-control(type='text' name='password' placeholder='Password' required)
+                input#password.form-control(type='password' name='password' placeholder='Password' required)
+                #passwordHelp.form-text
               .col-sm-6
-                input#confirmPassword.form-control(type='text' name='confirmPassword' placeholder='Confirm Password' required)
+                input#confirmPassword.form-control(type='password' name='confirmPassword' placeholder='Confirm Password' required)
+                #cPasswordHelp.form-text
             .text-center
               button.btn.btn-primary(type='submit') Submit
               button.btn.btn-danger.mx-3(type='reset') Reset
           .card-footer.text-center
             | Already have an account?
             a(href='/user/login') Login
+block append script
+  script(src='/js/register.js')           

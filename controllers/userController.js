@@ -75,16 +75,12 @@ const login_get = (req, res) =>{
 
 const login_user = async (req, res) => {
   try {
+    const userName = req.body.userName;
     const password = req.body.password;
-    const userDetails = await User.findOne({ userName: req.body.userName });
-    const userPassword = await bcrypt.compare(password, userDetails.password);
-    if (userPassword) {
-      res.send("log in successful");
-    } else {
-      res.send("Invalid");
-    }
+    const userAuth = await User.login(userName, password);
+    res.status(200).json({user: userAuth._id});
   } catch (err) {
-    res.status(400).send("Invalid User");
+    res.status(400).json({});
   }
 };
 

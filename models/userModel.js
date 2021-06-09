@@ -54,7 +54,20 @@ const registerSchema = new Schema({
 registerSchema.pre('save', async function(next){
     this.password = await bcrypt.hash(this.password, 10);
     next();
-})
+});
+
+
+registerSchema.statics.login = async function (userName, password){
+    const user = await this.findOne({userName});
+    if(user){
+        const auth = await bcrypt.compare(password, user.password);
+        if(auth){
+            return user;
+        }
+        throw Error('incorrect password');
+    }
+    throw Error('incorrect user name');
+}
 
 const User = model('User', registerSchema);
 

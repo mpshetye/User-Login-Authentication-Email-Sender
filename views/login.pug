@@ -5,10 +5,14 @@ block content
       .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
         .card-body
           h3.card-title.text-center Welcome Back
-          form.my-3(action='/login' method='post' style='margin-left:10rem ; margin-right:10rem ;')
+          form.my-3(action='/user/login' method='post' style='margin-left:10rem ; margin-right:10rem ;')
             .mb-3
               input#logUser.form-control(type='text' aria-describedby='emailHelp' name='userName' placeholder='User Name')
+              #userNameHelp.form-text
             .mb-3
               input#logPassword.form-control(type='password' name='password' placeholder='Password')
+              #logPasswordHelp.form-text
             .text-center
               button.btn.btn-primary(type='submit') Login
+block append script
+  script(src='/js/login.js') 

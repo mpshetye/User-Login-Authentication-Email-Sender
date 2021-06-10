@@ -5,7 +5,7 @@ block content
       .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
         .card-body
           h3.card-title.text-center Sign Up for Free
-          form.my-3.mx-5(action='/user/register' method='post')
+          form#registerForm.my-3.mx-5(action='/user/register' method='post')
             .row.mb-3
               .col-sm-6
                 input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)

@@ -26,8 +26,10 @@ html(lang='en')
                         ul.navbar-nav.d-flex
                             li.nav-item
                                 a.nav-link(aria-current='page' href='/user/register' style='color: rgb(255 255 255);') Sign Up
-                            li.nav-item
-                                a.nav-link(aria-current='page' href='/user/login' style='color: rgb(255 255 255);') Login
+                            li#logOut.nav-item
+                                a.nav-link(aria-current='page' href='/user/logout' style='color: rgb(255 255 255);') Log Out
+                            li#logIn.nav-item
+                                a.nav-link(aria-current='page' href='/user/login' style='color: rgb(255 255 255);') Log In
         block content
         footer.footer.bg-dark.foot
             p Copyright @2021-2022&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

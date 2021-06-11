@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
+const emailRoutes = require("./routes/emailRoute");
 // const User = require('./models/userModel'); dot is root directory... to move out from another directory to root use two dots and then slash.
 const cookieParser = require('cookie-parser');
 
@@ -37,3 +38,4 @@ app.get("/", (req, res) => {
 });
 
 app.use('/user', userRoutes);
+app.use('/nodemailapi', emailRoutes);

@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const emailRoutes = require("./routes/emailRoute");
+const authMiddleware = require('./middleware/authMiddleware');
 // const User = require('./models/userModel'); dot is root directory... to move out from another directory to root use two dots and then slash.
 const cookieParser = require('cookie-parser');
 
@@ -33,6 +34,8 @@ mongoose
     console.log(err);
   });
 
+
+app.get('*', authMiddleware.checkUser);
 app.get("/", (req, res) => {
   res.status(200).render("index");
 });

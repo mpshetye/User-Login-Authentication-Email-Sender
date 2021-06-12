@@ -24,12 +24,18 @@ html(lang='en')
                             li.nav-item
                                 a.nav-link(aria-current='page' href='/nodemailapi/email_page' style='color: rgb(255 255 255);') Email
                         ul.navbar-nav.d-flex
-                            li.nav-item
-                                a.nav-link(aria-current='page' href='/user/register' style='color: rgb(255 255 255);') Sign Up
-                            li#logOut.nav-item
-                                a.nav-link(aria-current='page' href='/user/logout' style='color: rgb(255 255 255);') Log Out
-                            li#logIn.nav-item
-                                a.nav-link(aria-current='page' href='/user/login' style='color: rgb(255 255 255);') Log In
+                            if data
+                                li.navbar-text(style='color: rgb(255 255 255);')
+                                    | Welcome,&nbsp;
+                                    =data.userName
+                                    |&nbsp;&nbsp;&nbsp;
+                                li#logOut.nav-item
+                                    a.nav-link(aria-current='page' href='/user/logout' style='color: rgb(255 255 255);') Log Out
+                            else
+                                li#logIn.nav-item
+                                    a.nav-link(aria-current='page' href='/user/login' style='color: rgb(255 255 255);') Log In
+                                li.nav-item
+                                    a.nav-link(aria-current='page' href='/user/register' style='color: rgb(255 255 255);') Sign Up
         block content
         footer.footer.bg-dark.foot
             p Copyright @2021-2022&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

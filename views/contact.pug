@@ -1,0 +1,45 @@
+extends layout.pug
+
+block content
+  #success.alert.alert-success.alert-dismissible.fade.show(role='alert')
+    span#alertPara
+    button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
+  .jumbotron.mx-auto.my-5
+    .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
+      .card-body
+        h3.card-title.text-center Have Some Question?
+        form#contactForm.my-3.mx-5(action='/help/contact_page' method='post')
+          if data
+            .row.mb-3
+              .col-sm-6
+                input#firstName.form-control(type='text' name='firstName' value=data.firstName required)
+                #firstNameHelp.form-text
+              .col-sm-6
+                input#lastName.form-control(type='text' name='lastName' value=data.lastName required)
+                #lastNameHelp.form-text
+            .row.mb-3
+              .col-sm-12
+                input#myEmail.form-control(type='email' name='email' value=data.email required)
+                #emailHelp.form-text
+          else
+            .row.mb-3
+              .col-sm-6
+                input#firstName.form-control(type='text' name='firstName' placeholder='First Name' required)
+                #firstNameHelp.form-text
+              .col-sm-6
+                input#lastName.form-control(type='text' name='lastName' placeholder='Last Name' required)
+                #lastNameHelp.form-text
+            .row.mb-3
+              .col-sm-12
+                input#myEmail.form-control(type='email' name='email' placeholder='name@example.com' required)
+                #emailHelp.form-text
+          .row.mb-3
+            .input-group.mb-3
+              input#subject.form-control(type='text' name='subject' placeholder='Subject' required)
+          .row.mb-3
+            .input-group
+              textarea#messageArea.form-control(name='messageArea' cols='30' rows='10' placeholder='Your Message' required)
+          .text-center
+            button.btn.btn-primary(type='submit') Send Message
+block append script
+  script(src='/js/contact.js') 

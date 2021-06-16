@@ -7,7 +7,6 @@ const userError = document.querySelector("#userHelp");
 const ageError = document.querySelector("#ageHelp");
 const genderError = document.querySelector("#genderHelp");
 const passwordError = document.querySelector("#passwordHelp");
-const cPasswordError = document.querySelector("#cPasswordHelp");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   // reset errors
@@ -19,7 +18,6 @@ form.addEventListener("submit", async (e) => {
   ageError.textContent = "";
   genderError.textContent = "";
   passwordError.textContent = "";
-  cPasswordError.textContent = "";
   // get values
   const firstName = form.firstName.value;
   const lastName = form.lastName.value;
@@ -62,7 +60,9 @@ form.addEventListener("submit", async (e) => {
       ageError.textContent = data.errorMessage.age;
       genderError.textContent = data.errorMessage.gender;
       passwordError.textContent = data.errorMessage.password;
-      // cPasswordError.textContent = data.errorMessage.password;
+    }
+    if(data.msg){
+      passwordError.textContent = data.msg;
     }
     if (data.user) {
       location.assign("/");

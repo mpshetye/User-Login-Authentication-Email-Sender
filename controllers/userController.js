@@ -71,7 +71,7 @@ const register_user = async (req, res) => {
       res.status(400).json({ errorMessage });
     }
   } else {
-    res.send("password not matching");
+    res.json({ msg: "passwords not matching" });
   }
 };
 
@@ -89,19 +89,19 @@ const login_user = async (req, res) => {
     res.status(200).json({ user: userAuth._id });
   } catch (err) {
     const errorMessages = handleErrors(err);
-    res.status(400).json({errorMessages});
+    res.status(400).json({ errorMessages });
   }
 };
 
-const logout_get = (req, res) =>{
-  res.cookie('acjt', '', {maxAge: 1});
-  res.redirect('/');
-}
+const logout_get = (req, res) => {
+  res.cookie("acjt", "", { maxAge: 1 });
+  res.redirect("/");
+};
 
 module.exports = {
   register_get,
   register_user,
   login_get,
   login_user,
-  logout_get
+  logout_get,
 };

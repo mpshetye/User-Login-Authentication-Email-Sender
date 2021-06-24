@@ -1,0 +1,21 @@
+extends layout.pug
+
+block append head
+  link(rel='stylesheet' href='/css/blog.css')
+
+block content 
+  .container.mx-auto.my-5
+      .row.container-fluid(style=' background-color: #ffffff5c;')
+        h2.text-center.my-3 Welcome to nodeBlog
+        ul.nav.justify-content-end.text-dark
+          li.nav-item
+            a.nav-link(aria-current='page' href='/nodeblogapi/create' style='color: rgb(0 0 0);') Add Post
+          li.nav-item
+            a.nav-link(aria-current='page' href='/nodeblogapi/deleteblogs' style='color: rgb(0 0 0);') Delete Post
+        hr.hrstyle
+        .row
+          .card.m-4(style='width: 18rem;')
+            .card-body
+              h5.card-title Card title
+              p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+              a.btn.btn-primary(href='#') Read more

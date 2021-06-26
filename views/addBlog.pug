@@ -6,31 +6,32 @@ block content
         .card-body
           h4.card-title.text-center Add New Post
           form.my-3.mx-5(action='/nodeblogapi/create' method='post')
-            .row.mb-3
-              .col-sm-6
-                input#blogFirstName.form-control(type='text' name='blogFirstName' placeholder='First Name' required)
-                #firstNameHelp.form-text
-              .col-sm-6
-                input#blogLastName.form-control(type='text' name='blogLastName' placeholder='Last Name' required)
-                #lastNameHelp.form-text
-            .row.mb-3
-              .col-sm-6
-                input#blogEmail.form-control(type='email' name='blogEmail' placeholder='name@example.com' required)
-                #emailHelp.form-text
-              .col-sm-6
-                input#blogUserName.form-control(type='text' name='blogUserName' placeholder='User Name' required)
-                #userHelp.form-text
-            .row.mb-3
-              .col-sm-12
-                input#blogTitle.form-control(type='text' name='blogTitle' placeholder='Blog Title' required)
-            .row.mb-3
-              .col-sm-12
-                input#blogSnippet.form-control(type='text' name='blogSnippet' placeholder='Blog Snippet' required)
-            .row.mb-3
-              .input-group
-                textarea#blogBody.form-control(name='blogBody' cols='30' rows='10' placeholder='Blog Body' required)
-            .text-center
-              button.btn.btn-primary(type='submit') Add Blog
-              button.btn.btn-danger.mx-3(type='reset') Reset
+            if data
+              .row.mb-3
+                .col-sm-6
+                  input#blogFirstName.form-control(type='text' name='blogFirstName' value=data.firstName readonly)
+                  #firstNameHelp.form-text
+                .col-sm-6
+                  input#blogLastName.form-control(type='text' name='blogLastName' value=data.lastName  readonly)
+                  #lastNameHelp.form-text
+              .row.mb-3
+                .col-sm-6
+                  input#blogEmail.form-control(type='email' name='blogEmail' value=data.email  readonly)
+                  #emailHelp.form-text
+                .col-sm-6
+                  input#blogUserName.form-control(type='text' name='blogUserName' value=data.userName  readonly)
+                  #userHelp.form-text
+              .row.mb-3
+                .col-sm-12
+                  input#blogTitle.form-control(type='text' name='blogTitle' placeholder='Blog Title' required)
+              .row.mb-3
+                .col-sm-12
+                  input#blogSnippet.form-control(type='text' name='blogSnippet' placeholder='Blog Snippet' required)
+              .row.mb-3
+                .input-group
+                  textarea#blogBody.form-control(name='blogBody' cols='30' rows='10' placeholder='Blog Body' required)
+              .text-center
+                button.btn.btn-primary(type='submit') Add Blog
+                button.btn.btn-danger.mx-3(type='reset') Reset
 block append script
   script(src='/js/addBlog.js') 

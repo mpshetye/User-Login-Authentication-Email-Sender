@@ -1,0 +1,14 @@
+extends layout.pug
+
+block append head
+  link(rel='stylesheet' href='/css/index.css')
+
+block content 
+  .jumbotron.mx-auto.my-5
+      .card.m-auto(style='width: 50rem; background-color: #ffffff5c;')
+        .card-body
+          h1.card-title.text-center=blog.blogTitle
+          .my-4.mx-5
+            small(style='color: #ff2300a6;') by: #{blog.blogFirstName} #{blog.blogLastName} | #{blog.blogUserName}
+          .text-center.my-3
+            p.card-text #{blog.blogBody}

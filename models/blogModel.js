@@ -14,14 +14,12 @@ const blogSchema = new Schema(
     blogEmail: {
       type: String,
       required: [true, `Please enter an email`],
-      unique: true,
       lowercase: true,
       validate: [isEmail, `Please enter a valid email`],
     },
     blogUserName: {
       type: String,
       required: [true, `Please enter user name`],
-      unique: true,
     },
     blogTitle: {
       type: String,

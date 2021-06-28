@@ -5,13 +5,14 @@ const isAuth = (req, res, next) =>{
     const token = req.cookies.acjt;
 
     if(token){
-        jwt.verify(token, process.env.SECRET_KEY, (err, decodedToken)=>{
+        jwt.verify(token, process.env.SECRET_KEY, async(err, decodedToken)=>{
             if(err){
                 console.log(err.message);
                 res.redirect('/user/login');
             }
             else{
-                console.log(decodedToken);
+                let user = await User.findById(decodedToken.id);
+                req.decodedToken= user.userName;
                 next();
             }
         });

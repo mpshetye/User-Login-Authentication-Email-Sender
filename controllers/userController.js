@@ -56,7 +56,7 @@ const register_get = (req, res) => {
   res.render("register");
 };
 
-const register_user = async (req, res) => {
+const register_user_post = async (req, res) => {
   const password = req.body.password;
   const confirmPassword = req.body.confirmPassword;
   if (password === confirmPassword) {
@@ -79,7 +79,7 @@ const login_get = (req, res) => {
   res.render("login");
 };
 
-const login_user = async (req, res) => {
+const login_user_post = async (req, res) => {
   try {
     const userName = req.body.userName;
     const password = req.body.password;
@@ -100,8 +100,8 @@ const logout_get = (req, res) => {
 
 module.exports = {
   register_get,
-  register_user,
+  register_user_post,
   login_get,
-  login_user,
+  login_user_post,
   logout_get,
 };

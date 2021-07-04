@@ -1,0 +1,24 @@
+extends layout.pug
+
+block append head
+  link(rel='stylesheet' href='/css/blog.css')
+
+block content 
+  .container.mx-auto.my-5
+      .row.container-fluid(style=' background-color: #ffffff5c;')
+        h4.my-3 All Blogs by: #{userName}
+        hr.hrstyle
+        .row
+        if userBlogs.length > 0
+          each blog in userBlogs
+            .card.m-4(style='width: 18rem;')
+              .card-body
+                h3.card-title=blog.blogTitle
+                p.card-text= blog.blogSnippet
+                a.btn.btn-primary(href=`/nodeblogapi/read/${blog._id}`) Read
+                a.ms-3.btn.btn-warning(href=`/nodeblogapi/edit-blogs/${blog._id}`) Edit
+                a.ms-3.btn.btn-danger(href=`#` data-id=blog._id) Delete
+        else 
+          p.displystyle There are no blogs to display yet...
+block append script
+  script(src='/js/delete.js') 

@@ -14,5 +14,7 @@ block content
             p.card-text #{blog.blogBody}
           if data.userName == blog.blogUserName
             .text-center.my-3
-              a.btn.btn-primary(href=`/nodeblogapi/read/${blog._id}`) Edit
-              a.ms-3.btn.btn-danger(href=`/nodeblogapi/read/${blog._id}`) Delete
+              a.btn.btn-primary(href=`/nodeblogapi/edit-blogs/${blog._id}`) Edit
+              a.ms-3.btn.btn-danger(href=`#` data-id=blog._id) Delete
+block append script
+  script(src='/js/delete.js') 

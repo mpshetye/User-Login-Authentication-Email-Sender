@@ -12,7 +12,7 @@ const isAuth = (req, res, next) =>{
             }
             else{
                 let user = await User.findById(decodedToken.id);
-                req.decodedToken= user.userName;
+                req.userName= user.userName;
                 next();
             }
         });

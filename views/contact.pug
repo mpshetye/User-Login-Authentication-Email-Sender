@@ -12,15 +12,12 @@ block content
           if data
             .row.mb-3
               .col-sm-6
-                input#firstName.form-control(type='text' name='firstName' value=data.firstName required)
-                #firstNameHelp.form-text
+                input#firstName.form-control(type='text' name='firstName' value=data.firstName readonly)
               .col-sm-6
-                input#lastName.form-control(type='text' name='lastName' value=data.lastName required)
-                #lastNameHelp.form-text
+                input#lastName.form-control(type='text' name='lastName' value=data.lastName readonly)
             .row.mb-3
               .col-sm-12
-                input#myEmail.form-control(type='email' name='email' value=data.email required)
-                #emailHelp.form-text
+                input#myEmail.form-control(type='email' name='email' value=data.email readonly)
           else
             .row.mb-3
               .col-sm-6
@@ -36,9 +33,11 @@ block content
           .row.mb-3
             .input-group.mb-3
               input#subject.form-control(type='text' name='subject' placeholder='Subject' required)
+              #subjectHelp.form-text
           .row.mb-3
             .input-group
               textarea#messageArea.form-control(name='messageArea' cols='30' rows='10' placeholder='Your Message' required)
+              #messageHelp.form-text
           .text-center
             button.btn.btn-primary(type='submit') Send Message
 block append script
